@@ -9,6 +9,7 @@
       <w>apellidos</w>
       <w>asesor</w>
       <w>asignado</w>
+      <w>asignar</w>
       <w>años</w>
       <w>buscando</w>
       <w>buscar</w>
@@ -38,11 +39,13 @@
       <w>deseas</w>
       <w>desempenar</w>
       <w>direccion</w>
+      <w>disponible</w>
       <w>disponibles</w>
       <w>economica</w>
       <w>editar</w>
       <w>electronico</w>
       <w>encontraron</w>
+      <w>encuentra</w>
       <w>enfasis</w>
       <w>especialidad</w>
       <w>especialistas</w>
@@ -51,6 +54,8 @@
       <w>estás</w>
       <w>etnico</w>
       <w>evaluacion</w>
+      <w>examen</w>
+      <w>existe</w>
       <w>experiencia</w>
       <w>fecha</w>
       <w>fijo</w>
@@ -64,15 +69,24 @@
       <w>licencia</w>
       <w>lista</w>
       <w>medica</w>
+      <w>necesario</w>
       <w>nivel</w>
       <w>nombre</w>
       <w>nombres</w>
+      <w>nueva</w>
+      <w>obligatoria</w>
+      <w>obligatorio</w>
       <w>omitido</w>
+      <w>opción</w>
       <w>orden</w>
       <w>paciente</w>
       <w>precio</w>
       <w>prestador</w>
+      <w>producto</w>
+      <w>puede</w>
       <w>razon</w>
+      <w>registrada</w>
+      <w>registrado</w>
       <w>registrados</w>
       <w>registro</w>
       <w>registros</w>
@@ -82,6 +96,9 @@
       <w>salud</w>
       <w>sangre</w>
       <w>seguro</w>
+      <w>selecciona</w>
+      <w>seleccionados</w>
+      <w>seleccionar</w>
       <w>servicio</w>
       <w>tarifa</w>
       <w>tarifario</w>
@@ -89,6 +106,7 @@
       <w>telefono</w>
       <w>texto</w>
       <w>tipo</w>
+      <w>éxito</w>
     </words>
   </dictionary>
 </component>

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('codigo');
             $table->string('tipo');
             $table->string('nombre')->charset('utf8');
-            $table->decimal('precio', 10, 0);
-            $table->decimal('descuento', 10, 0);
+            $table->integer('precio');
+            $table->integer('descuento');
             $table->string('estado')->default('activo');
 
             $table->unsignedBigInteger('cliente_id');

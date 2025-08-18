@@ -60,7 +60,7 @@
                             </span>
 
 
-                            
+
                             <span class="text-[#706f6c] dark:text-[#5df076]">
                                 Funcionalidad 1: Autenticación y Autorización.
                             </span>
@@ -124,7 +124,7 @@
                             </span>
                             <span>
                                 Funcionalidad 8: Pagina web de la IPS.
-                               
+
                             </span>
                         </li>
                     </ul>

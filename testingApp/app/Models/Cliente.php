@@ -38,6 +38,11 @@ class Cliente extends Model
         return $this->hasMany(Tarifa::class);
     }
 
+    public function ciudad()
+    {
+        return $this->belongsTo(Ciudad::class, 'ciudad_id');
+    }
+
     public function getAntiguedadAttribute()
     {
         $fecha = $this->fecha_inicio_relacion_comercial;
@@ -54,12 +59,21 @@ class Cliente extends Model
 
     public function getTarifarioCreadoAttribute()
     {
-        $count = $this->tarifas->groupBy('ciudad_id')->count();
+        $ciudades = $this->tarifas()
+            ->with('ciudad')
+            ->get()
+            ->pluck('ciudad.nombre_ciudad')
+            ->unique();
+
+        $count = $ciudades->count();
 
         if ($count > 0) {
             $texto = $count > 1 ? 'Ciudades' : 'Ciudad';
+            $listaCiudades = $ciudades->join(' & ');
 
-            return '<a href="' . route('tarifas.show', $this->id) . '" > SI ' . $count . ' ' . $texto . '</a>';
+            return '<a href="' . route('tarifas.show', $this->id) . '" class="inline-flex items-center px-2 py-1 font-medium bg-blue-950 rounded hover:bg-blue-500" target="blank">'
+                . " $listaCiudades"
+                . '</a>';
         }
 
         return 'No';

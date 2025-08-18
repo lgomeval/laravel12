@@ -34,7 +34,15 @@
                         $value = is_callable($field) ? $field($item) : data_get($item, $field);
                     @endphp
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-zinc-800 dark:text-zinc-100">
-                        {{ $value }}
+                        @if($field === 'tarifario_creado')
+                            {!! $value !!}
+                        @elseif($field === 'precio')
+                            ${{ number_format($value, 0, ',', '.') }} COP
+                        @elseif($field === 'descuento')
+                            {{ $value }} %
+                        @else
+                            {{ $value }}
+                        @endif
                     </td>
                 @endforeach
 

@@ -18,6 +18,12 @@ class Tarifa extends Model
         'ciudad_id',
     ];
 
+    public function scopeBuscar($query, $valor)
+    {
+        return $query->where('ciudad_id', 'LIKE', "%$valor%")
+            ->orWhere('nombre', 'LIKE', "%$valor%");
+    }
+
     public function cliente()
     {
         return $this->belongsTo(Cliente::class);
@@ -26,5 +32,10 @@ class Tarifa extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function ciudad()
+    {
+        return $this->belongsTo(Ciudad::class, 'ciudad_id');
     }
 }

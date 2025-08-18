@@ -61,7 +61,8 @@ Route::middleware(['auth', 'can:ordenes-de-servicio'])->group(function () {
 // Tarifario
 Volt::route('tarifas', 'tarifas.index')->name('tarifas.index');
 Volt::route('tarifas/create/{cliente}', 'tarifas.create')->name('tarifas.create');
-Volt::route('tarifas/{id}/show', 'tarifas.show')->name('tarifas.show');
+Volt::route('tarifas/{cliente}/show', 'tarifas.show')->name('tarifas.show');
+Volt::route('tarifas/{tarifa}/edit', 'tarifas.edit')->name('tarifas.edit');
 
 
 

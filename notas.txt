@@ -27,7 +27,9 @@ Se esta desarrollando con Iconos->https://heroicons.com/
 
 Git
 git status -> muestra el estado del proyecto.
+git add testingApp vendor -> agrega la carpeta a seguimiento
 git rm -r --cached vendor/ ->remover carpeta o archivo.
 git push origin master -> subir lo cambios al repositorio.
+git push
 
 
