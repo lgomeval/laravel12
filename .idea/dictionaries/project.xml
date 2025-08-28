@@ -5,8 +5,11 @@
       <w>acompanante</w>
       <w>actividad</w>
       <w>activo</w>
+      <w>activos</w>
+      <w>agregar</w>
       <w>antiguedad</w>
       <w>apellidos</w>
+      <w>aqui</w>
       <w>asesor</w>
       <w>asignado</w>
       <w>asignar</w>
@@ -30,12 +33,15 @@
       <w>creado</w>
       <w>crear</w>
       <w>criterios</w>
+      <w>cuenta</w>
       <w>datos</w>
       <w>definido</w>
+      <w>definidos</w>
       <w>departamento</w>
       <w>desactivado</w>
       <w>desactivar</w>
       <w>descuento</w>
+      <w>descuentos</w>
       <w>deseas</w>
       <w>desempenar</w>
       <w>direccion</w>
@@ -51,24 +57,31 @@
       <w>especialistas</w>
       <w>estrato</w>
       <w>estudio</w>
+      <w>están</w>
       <w>estás</w>
       <w>etnico</w>
       <w>evaluacion</w>
       <w>examen</w>
+      <w>examenes</w>
       <w>existe</w>
       <w>experiencia</w>
       <w>fecha</w>
       <w>fijo</w>
       <w>fotografia</w>
+      <w>fuera</w>
       <w>genero</w>
       <w>grupo</w>
       <w>identificacion</w>
       <w>inactivo</w>
       <w>ingresados</w>
+      <w>inicializar</w>
       <w>inicio</w>
       <w>licencia</w>
       <w>lista</w>
+      <w>llega</w>
+      <w>lógica</w>
       <w>medica</w>
+      <w>mostrar</w>
       <w>necesario</w>
       <w>nivel</w>
       <w>nombre</w>
@@ -76,11 +89,13 @@
       <w>nueva</w>
       <w>obligatoria</w>
       <w>obligatorio</w>
+      <w>obligatorios</w>
       <w>omitido</w>
       <w>opción</w>
       <w>orden</w>
       <w>paciente</w>
       <w>precio</w>
+      <w>precios</w>
       <w>prestador</w>
       <w>producto</w>
       <w>puede</w>
@@ -97,6 +112,7 @@
       <w>sangre</w>
       <w>seguro</w>
       <w>selecciona</w>
+      <w>seleccionado</w>
       <w>seleccionados</w>
       <w>seleccionar</w>
       <w>servicio</w>
