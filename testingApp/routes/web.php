@@ -51,6 +51,12 @@ Route::middleware(['auth', 'can:clientes'])->group(function () {
     Volt::route('clientes/{cliente}/edit', 'clientes.edit')->name('clientes.edit');
 });
 
+// Tarifario
+Volt::route('tarifas', 'tarifas.index')->name('tarifas.index');
+Volt::route('tarifas/create/{cliente}', 'tarifas.create')->name('tarifas.create');
+Volt::route('tarifas/{cliente}/show', 'tarifas.show')->name('tarifas.show');
+Volt::route('tarifas/{tarifa}/edit', 'tarifas.edit')->name('tarifas.edit');
+
 // Gestion de Ordenes de Servicio
 Route::middleware(['auth', 'can:ordenes-de-servicio'])->group(function () {
     Volt::route('ordenes-de-servicio', 'ordendeservicio.index')->name('ordenes-de-servicio.index');
@@ -58,11 +64,7 @@ Route::middleware(['auth', 'can:ordenes-de-servicio'])->group(function () {
     Volt::route('ordenes-de-servicio/{orden}/edit', 'ordendeservicio.edit')->name('ordenes-de-servicio.edit');
 });
 
-// Tarifario
-Volt::route('tarifas', 'tarifas.index')->name('tarifas.index');
-Volt::route('tarifas/create/{cliente}', 'tarifas.create')->name('tarifas.create');
-Volt::route('tarifas/{cliente}/show', 'tarifas.show')->name('tarifas.show');
-Volt::route('tarifas/{tarifa}/edit', 'tarifas.edit')->name('tarifas.edit');
+
 
 
 

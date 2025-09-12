@@ -97,7 +97,7 @@ new class extends Component {
         $this->todos = true;
     }
 
-    public function crearTarifaTodos():
+    public function crearTarifaTodos()
     {
         $this->validate([
             'ciudad_id' => 'required|exists:ciudads,id',

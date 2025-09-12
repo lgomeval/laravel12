@@ -42,7 +42,7 @@
     {{-- Orden de Servicio --}}
     <flux:navlist class="w-64" variant="outline">
         <flux:navlist.group heading="Orden de Servicio" icon="clipboard-list" expandable :expanded="false">
-            <flux:navlist.item href="#" icon="magnifying-glass-circle">Consultar</flux:navlist.item>
+            <flux:navlist.item href="{{ route('ordenes-de-servicio.index') }}" icon="magnifying-glass-circle">Consultar</flux:navlist.item>
         </flux:navlist.group>
     </flux:navlist>
 

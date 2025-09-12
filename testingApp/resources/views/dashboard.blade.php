@@ -13,9 +13,12 @@
             </p>
         </div>
         <div class="mt-6">
-            <p class="text-gray-700 dark:text-gray-300">
-                {{ __('Aprendiendo Tailwind CSS 4') }}
-            </p>
+            <h1 class="text-gray-700 dark:text-gray-300">
+                {{ __('Modificaciones a mejorar durante el desarrollo del proyecto.') }}
+            </h1>
+            <ul class="text-gray-600 dark:text-gray-400 list-disc ml-6">
+                <li>Para las vistas create, implementar modales desde los index.</li>
+            </ul>
         </div>
     </x-slot>
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Tarifa extends Model
 {
@@ -38,4 +39,11 @@ class Tarifa extends Model
     {
         return $this->belongsTo(Ciudad::class, 'ciudad_id');
     }
+
+    public function OrdenDeServicio(): BelongsToMany
+    {
+        return $this->belongsToMany(OrdenDeServicio::class, 'orden_de_servicio_tarifas');
+    }
+
+
 }
