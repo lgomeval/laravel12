@@ -16,11 +16,21 @@ new class extends Component {
         return [
             'ordenes' => OrdenDeServicio::buscar($this->search)
                 ->orderBy('orden_numero', 'desc')
-                ->orderBy('created_at', 'desc')
+                ->orderBy('created_at', 'asc')
                 ->paginate(7),
         ];
     }
 
+    public function disable($ordenId)
+    {
+        $orden = OrdenDeServicio::findOrFail($ordenId);
+        if ($orden->estado === 'Finalizado') {
+            return redirect()->route('ordenes-de-servicio.index')->with('danger', 'No es posible cancelar una Orden en estado Finalizado');
+        }
+
+        $orden->update(['estado' => 'Cancelado']);
+        return redirect()->route('ordenes-de-servicio.index')->with('warning', 'Orden de servicio Cancelada correctamente');
+    }
 
 }; ?>
 
@@ -54,40 +64,42 @@ new class extends Component {
             <x-table :items="$ordenes" :columns="[
                 'Número de orden',
                 'Tipo Evaluación',
-                'enfasis',
+                //'enfasis',
                 //'Medio de Venta',
                 'Nombre del Paciente',
-                'Documento del Paciente',
+                //'Documento del Paciente',
                 'Lugar de Realización',
                 //'Dirección',
                 //'Telefono',
                 'Cliente Solicita:',
-                'Cargo a desempeñar:',
+                //'Cargo a desempeñar:',
                 'Fecha Solicitud',
-                'Procedimientos',
+                //'Procedimientos',
                 'Estado',
             ]" :fields="[
                 'orden_numero',
                 'tipo_evaluacion',
-                'enfasis',
+                //'enfasis',
                 //'medio_venta',
-                'paciente.nombres',
-                'paciente.numero_identificacion',
+                'paciente.NombreCompleto',
+                //'paciente.numero_identificacion',
                 'prestadorSaluds.razon_social',
                 //'prestadorSaluds.direccion',
                 //'prestadorSaluds.telefono_celular',
                 'cliente.nombre_comercial',
-                'paciente.cargo_a_desempenar',
+                //'paciente.cargo_a_desempenar',
                 'created_at',
-                'procedimientos',
+                //'procedimientos',
                 'estado',
             ]" :hasActions="true"
-                     editRoute="ordenes-de-servicio.edit"/>
+                     :showRoute="'ordenes-de-servicio.show'"
+                     :editRoute="'ordenes-de-servicio.edit'"
+                     />
             @endif
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
                     if (typeof Livewire !== 'undefined') {
-                        Livewire.on('confirmdesactivar', function (clienteId) {
+                        Livewire.on('confirmdesactivar', function (ordenId) {
                             Swal.fire({
                                 title: "¿Estás seguro que deseas cambiar de estado esta Orden de Servicio?",
                                 icon: "warning",
@@ -97,7 +109,7 @@ new class extends Component {
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     Livewire.dispatch('disable', {
-                                        clienteId: clienteId
+                                        ordenId: ordenId
                                     });
                                 }
                             });

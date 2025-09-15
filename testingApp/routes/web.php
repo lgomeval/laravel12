@@ -62,6 +62,7 @@ Route::middleware(['auth', 'can:ordenes-de-servicio'])->group(function () {
     Volt::route('ordenes-de-servicio', 'ordendeservicio.index')->name('ordenes-de-servicio.index');
     Volt::route('ordenes-de-servicio/create', 'ordendeservicio.create')->name('ordenes-de-servicio.create');
     Volt::route('ordenes-de-servicio/{orden}/edit', 'ordendeservicio.edit')->name('ordenes-de-servicio.edit');
+    Volt::route('ordendeservicio/{orden}/show', 'ordendeservicio.show')->name('ordenes-de-servicio.show');
 });
 
 

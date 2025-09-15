@@ -59,8 +59,6 @@
                                 </span>
                             </span>
 
-
-
                             <span class="text-[#706f6c] dark:text-[#5df076]">
                                 Funcionalidad 1: Autenticación y Autorización.
                             </span>
@@ -92,8 +90,8 @@
                                     <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
                                 </span>
                             </span>
-                            <span>
-                                <marquee loop="3">Funcionalidad 4: Modulo Clientes & Nueva Venta o Servicio</marquee>
+                            <span class="text-[#706f6c] dark:text-[#5df076]">
+                                Funcionalidad 4: Modulo Clientes & Nueva Venta o Servicio
                             </span>
                         </li>
                         <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:bottom-1/2 before:top-0 before:start-[0.4rem] before:absolute">
@@ -102,9 +100,9 @@
                                     <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
                                 </span>
                             </span>
-                            <span>
+                            <span><marquee loop="3">
                                  Funcionalidad 5: Agendamiento de Citas Médicas.
-                            </span>
+                            </span></marquee>
                         </li>
                             <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:bottom-1/2 before:top-0 before:start-[0.4rem] before:absolute">
                             <span class="relative py-1 bg-white dark:bg-[#161615]">

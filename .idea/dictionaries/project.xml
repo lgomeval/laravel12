@@ -7,6 +7,8 @@
       <w>actividad</w>
       <w>activo</w>
       <w>activos</w>
+      <w>agendada</w>
+      <w>agendamiento</w>
       <w>agendar</w>
       <w>agregar</w>
       <w>antiguedad</w>
@@ -16,21 +18,27 @@
       <w>asesor</w>
       <w>asignado</w>
       <w>asignar</w>
+      <w>asistio</w>
       <w>años</w>
       <w>buscando</w>
       <w>buscar</w>
       <w>búsqueda</w>
       <w>cambiar</w>
+      <w>cancelada</w>
+      <w>cancelado</w>
       <w>cancelar</w>
       <w>celular</w>
       <w>certificaciones</w>
+      <w>cita</w>
       <w>ciudades</w>
       <w>cliente</w>
       <w>clientes</w>
       <w>codigo</w>
       <w>comercial</w>
       <w>confirmación</w>
+      <w>confirmar</w>
       <w>confirmdesactivar</w>
+      <w>consultar</w>
       <w>contacto</w>
       <w>correctamente</w>
       <w>correo</w>
@@ -52,6 +60,7 @@
       <w>desde</w>
       <w>deseas</w>
       <w>desempenar</w>
+      <w>detalles</w>
       <w>direccion</w>
       <w>disponible</w>
       <w>disponibles</w>
@@ -64,6 +73,7 @@
       <w>enfasis</w>
       <w>especialidad</w>
       <w>especialistas</w>
+      <w>estas</w>
       <w>estrato</w>
       <w>estudio</w>
       <w>están</w>
@@ -76,6 +86,7 @@
       <w>experiencia</w>
       <w>fecha</w>
       <w>fijo</w>
+      <w>finalizada</w>
       <w>finalizado</w>
       <w>formulario</w>
       <w>fotografia</w>
@@ -84,7 +95,9 @@
       <w>grupo</w>
       <w>identificacion</w>
       <w>implementar</w>
+      <w>importante</w>
       <w>inactivo</w>
+      <w>información</w>
       <w>ingresados</w>
       <w>inicializar</w>
       <w>inicio</w>
@@ -94,6 +107,7 @@
       <w>lógica</w>
       <w>medica</w>
       <w>mejorar</w>
+      <w>menos</w>
       <w>modales</w>
       <w>modificaciones</w>
       <w>mostrar</w>
@@ -105,13 +119,16 @@
       <w>obligatoria</w>
       <w>obligatorio</w>
       <w>obligatorios</w>
+      <w>observaciones</w>
       <w>omitido</w>
       <w>opción</w>
       <w>orden</w>
+      <w>ordendeservicio</w>
       <w>ordenes</w>
       <w>paciente</w>
       <w>pacientes</w>
       <w>pendiente</w>
+      <w>posible</w>
       <w>precio</w>
       <w>precios</w>
       <w>prestador</w>
@@ -156,6 +173,7 @@
       <w>tipo</w>
       <w>usuario</w>
       <w>usuarios</w>
+      <w>válido</w>
       <w>éxito</w>
     </words>
   </dictionary>

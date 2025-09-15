@@ -30,7 +30,7 @@ return new class extends Migration
             $table->unsignedBigInteger('prestador_saluds_id');
             $table->foreign('prestador_saluds_id')->references('id')->on('prestador_saluds');
 
-            $table->enum('estado', ['Pendiente Agendar', 'En Proceso', 'Finalizado']);
+            $table->enum('estado', ['Pendiente Agendar', 'En Proceso', 'Finalizado', 'Cancelado'])->default('Pendiente Agendar');
             $table->timestamps();
         });
     }

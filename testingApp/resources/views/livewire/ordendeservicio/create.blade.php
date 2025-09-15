@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Requests\OrdenDeServicioRequest;
 use App\Models\OrdenDeServicio;
 use Livewire\Volt\Component;
 use App\Models\PrestadorSalud;
@@ -54,6 +55,12 @@ new class extends Component {
 
     public function crearOrdenDeServicio()
     {
+        $request = new OrdenDeServicioRequest();
+        $validated = $this->validate(
+            $request->rules(),
+            $request->messages()
+        );
+
         $this->clienteSeleccionado = Cliente::find($this->cliente_id);
         $this->tarifas = Tarifa::where('cliente_id', $this->cliente_id)->get();
 
@@ -71,13 +78,10 @@ new class extends Component {
             'estado' => $this->estado,
         ));
 
-        foreach ($this->tarifasSeleccionadas as $tarifaId => $isSelected)
-        {
-            if ($isSelected)
-            {
+        foreach ($this->tarifasSeleccionadas as $tarifaId => $isSelected) {
+            if ($isSelected) {
                 $tarifa = Tarifa::find($tarifaId);
-                if ($tarifa)
-                {
+                if ($tarifa) {
                     $ordenDeServicio->tarifas()->attach($tarifaId);
                 }
             }
@@ -194,7 +198,8 @@ new class extends Component {
                     <flux:modal name="agregar-tarifas" class="@max-[]::w-96">
                         <div class="space-y-6">
                             <div>
-                                <flux:heading size="lg">Tarifas Disponibles para el Cliente: {{ $clienteSeleccionado ? $clienteSeleccionado->razon_social : 'No tiene Cliente Seleccionado' }}</flux:heading>
+                                <flux:heading size="lg">Tarifas Disponibles para el
+                                    Cliente: {{ $clienteSeleccionado ? $clienteSeleccionado->razon_social : 'No tiene Cliente Seleccionado' }}</flux:heading>
                             </div>
                             @if($tarifas && $tarifas->count())
                                 <div class="bg-gray-800 p-4 rounded-lg shadow-md @max-[]::w-96">
@@ -206,11 +211,15 @@ new class extends Component {
                                                     <input type="checkbox"
                                                            wire:model="tarifasSeleccionadas.{{ $tarifa->id }}"
                                                            class="form-checkbox h-5 w-5 text-blue-500 transition duration-150 ease-in-out">
-                                                    <span class="text-sm">{{ $tarifa->nombre }} - <span class="font-medium text-green-400">${{ number_format($tarifa->precio, 0) }}</span></span>
+                                                    <span class="text-sm">{{ $tarifa->nombre }} - <span
+                                                            class="font-medium text-green-400">${{ number_format($tarifa->precio, 0) }}</span></span>
                                                 </label>
                                             </li>
                                         @endforeach
                                     </ul>
+                                    @error('tarifasSeleccionadas')
+                                    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
 

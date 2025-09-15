@@ -1,10 +1,10 @@
 <flux:sidebar sticky stashable class="z-40 border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
 
     <a href="{{ route('dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
-        <x-app-logo />
+        <x-app-logo/>
     </a>
 
-    <flux:separator />
+    <flux:separator/>
 
     {{-- Agendamiento --}}
     <flux:navlist class="w-64" variant="outline">
@@ -17,7 +17,8 @@
     {{-- Nueva Venta --}}
     <flux:navlist class="w-64" variant="outline">
         <flux:navlist.group heading="Nueva Venta o Servicio" expandable :expanded="false">
-            <flux:navlist.item href="{{ route('ordenes-de-servicio.create') }}" icon="credit-card">Crear Venta</flux:navlist.item>
+            <flux:navlist.item href="{{ route('ordenes-de-servicio.create') }}" icon="credit-card">Crear Venta
+            </flux:navlist.item>
         </flux:navlist.group>
     </flux:navlist>
 
@@ -39,15 +40,19 @@
         </flux:navlist.group>
     </flux:navlist>
 
-    {{-- Orden de Servicio --}}
-    <flux:navlist class="w-64" variant="outline">
+    {{--     Orden de Servicio --}}
+    <flux:navlist class="w-64 rounded-lg" variant="outline">
         <flux:navlist.group heading="Orden de Servicio" icon="clipboard-list" expandable :expanded="false">
-            <flux:navlist.item href="{{ route('ordenes-de-servicio.index') }}" icon="magnifying-glass-circle">Consultar</flux:navlist.item>
+            <flux:navlist.item href="{{ route('ordenes-de-servicio.index') }}" icon="magnifying-glass-circle"
+                               badge="{{ \App\Models\OrdenDeServicio::count() }}">Consultar
+            </flux:navlist.item>
         </flux:navlist.group>
     </flux:navlist>
 
+
     {{-- Envios & Entregaso --}}
-    <flux:navlist class="w-64" variant="outline">
+    <flux:navlist class=" w-64
+            " variant="outline">
         <flux:navlist.group heading="Envios & Entregas" icon="clipboard-list" expandable :expanded="false">
             <flux:navlist.item href="#" icon="magnifying-glass-circle">Entrega de Certificados</flux:navlist.item>
             <flux:navlist.item href="#" icon="pencil-square">Historial de Envios
@@ -57,9 +62,11 @@
     </flux:navlist>
 
     {{-- Clientes --}}
-    <flux:navlist class="w-64" variant="outline" >
-        <flux:navlist.group heading="Clientes" icon="clipboard-list" expandable :expanded="false" >
-            <flux:navlist.item href="{{ route('clientes.index') }}" badge="{{ \App\Models\Cliente::count() }}" icon="magnifying-glass-circle" >Consultar</flux:navlist.item>
+    <flux:navlist class="w-64" variant="outline">
+        <flux:navlist.group heading="Clientes" icon="clipboard-list" expandable :expanded="false">
+            <flux:navlist.item href="{{ route('clientes.index') }}" badge="{{ \App\Models\Cliente::count() }}"
+                               icon="magnifying-glass-circle">Consultar
+            </flux:navlist.item>
             <flux:navlist.item href="#" icon="pencil-square">Certificaciones</flux:navlist.item>
         </flux:navlist.group>
     </flux:navlist>
@@ -67,7 +74,8 @@
     {{-- Ventas --}}
     <flux:navlist class="w-64" variant="outline">
         <flux:navlist.group heading="Ventas" icon="clipboard-list" expandable :expanded="false">
-            <flux:navlist.item href="{{ route('tarifas.index') }}" icon="magnifying-glass-circle">Tarifarios</flux:navlist.item>
+            <flux:navlist.item href="{{ route('tarifas.index') }}" icon="magnifying-glass-circle">Tarifarios
+            </flux:navlist.item>
             <flux:navlist.item href="#" icon="pencil-square">Procesos de Ventas</flux:navlist.item>
         </flux:navlist.group>
     </flux:navlist>
@@ -107,14 +115,16 @@
 
     {{-- Repositorio & Documentacion --}}
 
-    <flux:spacer />
+    <flux:spacer/>
 
     <flux:navlist variant="outline">
-        <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
+        <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit"
+                           target="_blank">
             {{ __('Repository') }}
         </flux:navlist.item>
 
-        <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
+        <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire"
+                           target="_blank">
             {{ __('Documentation') }}
         </flux:navlist.item>
     </flux:navlist>
