@@ -9,7 +9,7 @@
     {{-- Agendamiento --}}
     <flux:navlist class="w-64" variant="outline">
         <flux:navlist.group heading="Agendamiento" icon="calendar" expandable :expanded="false">
-            <flux:navlist.item href="#" icon="calendar">Consultar Agenda</flux:navlist.item>
+            <flux:navlist.item href="{{ route('agendas.index') }}" icon="calendar">Consultar Agenda</flux:navlist.item>
             <flux:navlist.item href="#" icon="clock">Confirmar Cita</flux:navlist.item>
         </flux:navlist.group>
     </flux:navlist>

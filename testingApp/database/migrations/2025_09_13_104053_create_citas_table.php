@@ -15,13 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('nombre_examen');
             $table->string('tipo_examen');
-            $table->dateTime('fecha_inicio');
-            $table->dateTime('fecha_fin');
+            $table->date('fecha_cita');
+            $table->time('hora_cita');
             $table->text('observaciones')->nullable();
             $table->enum('estado', ['Agendada', 'Asistio', 'No Asistio', 'Cancelada', 'Pendiente Agendar'])->default('Pendiente Agendar');
 
             $table->foreignId('paciente_id')->constrained('pacientes')->onDelete('cascade');
-            $table->foreignId('especialista_id')->constrained('especialistas')->onDelete('cascade');
             $table->foreignId('orden_de_servicio_id')->constrained('orden_de_servicios')->onDelete('cascade');
 
             $table->timestamps();

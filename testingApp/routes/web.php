@@ -65,6 +65,9 @@ Route::middleware(['auth', 'can:ordenes-de-servicio'])->group(function () {
     Volt::route('ordendeservicio/{orden}/show', 'ordendeservicio.show')->name('ordenes-de-servicio.show');
 });
 
+// Agendas
+Volt::route('agendas', 'agendas.index')->name('agendas.index');
+
 
 
 

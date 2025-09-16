@@ -1,15 +1,44 @@
 <?php
 
+use App\Models\Cita;
 use App\Models\OrdenDeServicio;
 use Livewire\Volt\Component;
 
 new class extends Component {
     public $orden;
+    public $fecha_cita;
+    public $hora_cita;
+    public $observaciones;
+    public $nombres;
+    public $tipos;
 
     public function mount(OrdenDeServicio $orden)
     {
         $this->orden = $orden;
 
+    }
+
+    public function agendar()
+    {
+        $nombres = $this->orden->tarifas->pluck('nombre')->join(', ');
+        $tipos = $this->orden->tarifas->pluck('tipo')->join(', ');
+
+       dd($this->orden->tarifas->pluck('id'));
+
+
+        Cita::create([
+            'nombre_examen' => $nombres,
+            'tipo_examen' => $tipos,
+            'fecha_cita' => $this->fecha_cita,
+            'hora_cita' => $this->hora_cita,
+            'observaciones' => $this->observaciones,
+            'paciente_id' => $this->orden->paciente_id,
+            'orden_de_servicio_id' => $this->orden->id,
+        ]);
+
+        $this->orden->tarifas()->update(['estado' => 'Agendada']);
+
+        return redirect(route('ordenes-de-servicio.index'))->with('success', 'Procedimientos Agendados Existosamente');
     }
 
 }; ?>
@@ -116,7 +145,6 @@ new class extends Component {
                             <th class="px-4 py-3 text-left text-sm font-semibold text-gray-200">Tipo</th>
                             <th class="px-4 py-3 text-left text-sm font-semibold text-gray-200">Precio</th>
                             <th class="px-4 py-3 text-left text-sm font-semibold text-gray-200">Estado</th>
-                            <th class="px-4 py-3 text-right text-sm font-semibold text-gray-200">Acciones</th>
                         </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-700">
@@ -134,9 +162,6 @@ new class extends Component {
                         </tbody>
                     </table>
                 </div>
-                {{--                Modal Agendar--}}
-                {{-- Botón para abrir modal (lo puedes poner donde quieras, por ejemplo debajo de procedimientos) --}}
-
 
                 {{-- Modal para agendar citas --}}
                 <flux:modal name="agendar-cita" class="md:w-[40rem]">
@@ -150,37 +175,36 @@ new class extends Component {
                         </div>
 
                         {{-- Lista de procedimientos --}}
-                        <div class="space-y-4">
-                            <flux:heading size="sm">Procedimientos</flux:heading>
-                            <ul class="space-y-2">
-                                @foreach ($orden->tarifas as $examen)
-                                    <li class="flex items-center justify-between bg-zinc-800 px-3 py-2 rounded-xl">
-                        <span class="text-gray-200 text-sm">
-                            {{ $examen->nombre }} ({{ $examen->tipo }})
-                        </span>
-                                        <flux:badge>{{ $examen->estado }}</flux:badge>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
+                        <form wire:submit.prevent='agendar' enctype="multipart/form-data">
+                            <div class="space-y-4">
+                                <flux:heading size="sm">Procedimientos</flux:heading>
+                                <ul class="space-y-2">
+                                    @foreach ($orden->tarifas as $examen)
+                                        <li class="flex items-center justify-between bg-zinc-800 px-3 py-2 rounded-xl">
+                                <span class="text-gray-200 text-sm">
+                                    {{ $examen->nombre }} ({{ $examen->tipo }})
+                                </span>
+                                            <flux:badge>{{ $examen->estado }}</flux:badge>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
 
-                        {{-- Campos de agendamiento --}}
-                        <div class="grid grid-cols-2 gap-4">
-                            <flux:input label="Fecha Inicio" type="datetime-local" wire:model.defer="fecha_inicio"/>
-                            <flux:input label="Fecha Fin" type="datetime-local" wire:model.defer="fecha_fin"/>
-                        </div>
+                            {{-- Campos de agendamiento --}}
+                            <div class="grid grid-cols-2 gap-4">
+                                <flux:input wire:model="fecha_cita" label="Fecha" type="date"/>
+                                <flux:input label="Hora" type="time" wire:model="hora_cita"/>
+                            </div>
 
-                        <flux:textarea label="Observaciones" wire:model.defer="observaciones"/>
+                            <flux:textarea label="Observaciones" wire:model.defer="observaciones"/>
 
-                        {{-- Botones --}}
-                        <div class="flex justify-end gap-2">
-                            <flux:button variant="ghost" x-on:click="$dispatch('close')">
-                                Cancelar
-                            </flux:button>
-                            <flux:button variant="primary" wire:click="agendar">
-                                Guardar Cita
-                            </flux:button>
-                        </div>
+                            {{-- Botones --}}
+                            <div class="flex justify-end pt-2">
+                                <flux:button type="submit" variant="primary">
+                                    Guardar Cita
+                                </flux:button>
+                            </div>
+                        </form>
                     </div>
                 </flux:modal>
             </div>

@@ -9,12 +9,12 @@ class Cita extends Model
     protected $fillable = [
         'nombre_examen',
         'tipo_examen',
-        'fecha_inicio',
-        'fecha_fin',
-        'paciente_id',
-        'especialistas_id',
+        'fecha_cita',
+        'hora_cita',
         'observaciones',
-        'estado'
+        'estado',
+        'paciente_id',
+        'orden_de_servicio_id'
     ];
 
     public function paciente()
@@ -22,8 +22,8 @@ class Cita extends Model
         return $this->belongsTo(Paciente::class);
     }
 
-    public function especialista()
+    public function orden_de_servicio()
     {
-        return $this->belongsTo(Especialista::class);
+        return $this->belongsTo(OrdenDeServicio::class);
     }
 }
