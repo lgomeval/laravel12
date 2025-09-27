@@ -46,6 +46,9 @@
             <flux:navlist.item href="{{ route('ordenes-de-servicio.index') }}" icon="magnifying-glass-circle"
                                badge="{{ \App\Models\OrdenDeServicio::count() }}">Consultar
             </flux:navlist.item>
+            <flux:navlist.item href="{{ route('ordenes-de-servicio.seguimiento') }}" icon="magnifying-glass-circle"
+                               badge="{{ \App\Models\OrdenDeServicio::count() }}">Pendientes
+            </flux:navlist.item>
         </flux:navlist.group>
     </flux:navlist>
 

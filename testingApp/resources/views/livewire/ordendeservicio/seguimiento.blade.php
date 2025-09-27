@@ -1,7 +1,7 @@
 <?php
 
-use Livewire\Volt\Component;
 use App\Models\OrdenDeServicio;
+use Livewire\Volt\Component;
 
 new class extends Component {
     public $search;
@@ -15,7 +15,7 @@ new class extends Component {
 
         return [
             'ordenes' => OrdenDeServicio::buscar($this->search)
-                ->where('estado', 'Pendiente Agendar')
+                ->where('estado', '!=', 'Pendiente Agendar')
                 ->orderBy('orden_numero', 'desc')
                 ->orderBy('created_at', 'asc')
                 ->paginate(7),
@@ -32,20 +32,19 @@ new class extends Component {
         $orden->update(['estado' => 'Cancelado']);
         return redirect()->route('ordenes-de-servicio.index')->with('warning', 'Orden de servicio Cancelada correctamente');
     }
-
 }; ?>
 
 <div class="px-4 sm:px-6 lg:px-8">
     <x-slot name="header">
         <h1 class="text-2xl text-center font-semibold text-gray-900 dark:text-white">
-            {{ __('Ordenes de Servicios.') }}
+            {{ __('Ordenes de Servicios en Seguimiento.') }}
         </h1>
         <br>
     </x-slot>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
         <div>
-            <p>Aqui solo se muestran las ordenes de servicio en estado <strong>Pendiente Agendar</strong></p>
+
         </div>
         <div class="w-full max-w-md mx-auto">
             <input wire:model.live="search"
@@ -95,9 +94,8 @@ new class extends Component {
                 //'procedimientos',
                 'estado',
             ]" :hasActions="true"
-                     :showRoute="'ordenes-de-servicio.show'"
                      :editRoute="'ordenes-de-servicio.edit'"
-                     />
+            />
             @endif
             <script>
                 document.addEventListener('DOMContentLoaded', function () {

@@ -60,6 +60,7 @@ Volt::route('tarifas/{tarifa}/edit', 'tarifas.edit')->name('tarifas.edit');
 // Gestion de Ordenes de Servicio
 Route::middleware(['auth', 'can:ordenes-de-servicio'])->group(function () {
     Volt::route('ordenes-de-servicio', 'ordendeservicio.index')->name('ordenes-de-servicio.index');
+    Volt::route('ordenes-de-servicio/seguimiento', 'ordendeservicio.seguimiento')->name('ordenes-de-servicio.seguimiento');
     Volt::route('ordenes-de-servicio/create', 'ordendeservicio.create')->name('ordenes-de-servicio.create');
     Volt::route('ordenes-de-servicio/{orden}/edit', 'ordendeservicio.edit')->name('ordenes-de-servicio.edit');
     Volt::route('ordendeservicio/{orden}/show', 'ordendeservicio.show')->name('ordenes-de-servicio.show');
@@ -67,6 +68,9 @@ Route::middleware(['auth', 'can:ordenes-de-servicio'])->group(function () {
 
 // Agendas
 Volt::route('agendas', 'agendas.index')->name('agendas.index');
+
+// Historias Clinicas
+Volt::route('historias-clinicas', 'historias-clinicas.create')->name('historias-clinicas.create');
 
 
 

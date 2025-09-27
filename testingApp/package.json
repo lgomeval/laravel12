@@ -10,6 +10,7 @@
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.4",
         "concurrently": "^9.0.1",
+        "fullcalendar": "^6.1.19",
         "laravel-vite-plugin": "^2.0",
         "sweetalert2": "^11.22.3",
         "tailwindcss": "^4.0.7",

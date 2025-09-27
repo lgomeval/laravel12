@@ -10,8 +10,8 @@
     @endif
         @if($showRoute)
             <a href="{{ route($showRoute, $item->id) }}"
-               class="px-3 py-1.5 bg-blue-600 text-white rounded-md hover:bg-blue-900 transition" title="Ver">
-                Ver
+               class="px-3 py-1.5 bg-green-600 text-white rounded-md hover:bg-green-900 transition" title="Agendar">
+                Agendar
             </a>
         @endif
     @if($editRoute)
