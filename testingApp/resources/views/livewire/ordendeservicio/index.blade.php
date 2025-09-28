@@ -95,7 +95,7 @@ new class extends Component {
                 //'procedimientos',
                 'estado',
             ]" :hasActions="true"
-                     :showRoute="'ordenes-de-servicio.show'"
+                     :agendaRoute="'ordenes-de-servicio.show'"
                      :editRoute="'ordenes-de-servicio.edit'"
                      />
             @endif

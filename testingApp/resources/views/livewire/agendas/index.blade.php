@@ -17,20 +17,27 @@ new class extends Component {
 
     public function loadEvents(): void
     {
-
         $this->events = Cita::with(['paciente'])
             ->get()
             ->map(function ($cita) {
                 return [
                     'id' => $cita->id,
-                    'title' => $cita->nombre_examen . ' - ' . $cita->paciente->nombreCompleto,
+                    'title' => $cita->paciente->nombreCompleto . ' ' . $cita->nombre_examen,
                     'start' => $cita->fecha_cita . ' ' . $cita->hora_cita,
-                    'end' => Carbon::parse($cita->hora_cita)->addMinutes(30)->toDateTimeString(),
+                    'end' => Carbon::parse($cita->fecha_cita . ' ' . $cita->hora_cita)
+                        ->addMinutes(30)
+                        ->toDateTimeString(),
+                    'url'   => route('historias-clinicas.create', $cita->paciente->id),
                 ];
             })
             ->toArray();
+    }
 
-//        dd($this->events);
+    #[On('openHistoriaClinicaModal')]
+    public function loadHistoriaClinica($citaId)
+    {
+        $this->cita = Cita::with('historiaClinica')->find($citaId);
+        $this->showModal = true;
     }
 
 }; ?>
@@ -77,6 +84,10 @@ new class extends Component {
                 },
                 events: events,
                 displayEventTime: false,
+                eventClick: function(info) {
+                    window.open(info.event.url, '_blank');
+                    info.jsEvent.preventDefault();
+                }
             });
 
             calendar.render();

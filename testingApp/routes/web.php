@@ -58,22 +58,20 @@ Volt::route('tarifas/{cliente}/show', 'tarifas.show')->name('tarifas.show');
 Volt::route('tarifas/{tarifa}/edit', 'tarifas.edit')->name('tarifas.edit');
 
 // Gestion de Ordenes de Servicio
-Route::middleware(['auth', 'can:ordenes-de-servicio'])->group(function () {
-    Volt::route('ordenes-de-servicio', 'ordendeservicio.index')->name('ordenes-de-servicio.index');
-    Volt::route('ordenes-de-servicio/seguimiento', 'ordendeservicio.seguimiento')->name('ordenes-de-servicio.seguimiento');
-    Volt::route('ordenes-de-servicio/create', 'ordendeservicio.create')->name('ordenes-de-servicio.create');
-    Volt::route('ordenes-de-servicio/{orden}/edit', 'ordendeservicio.edit')->name('ordenes-de-servicio.edit');
-    Volt::route('ordendeservicio/{orden}/show', 'ordendeservicio.show')->name('ordenes-de-servicio.show');
-});
+Volt::route('ordenes-de-servicio', 'ordendeservicio.index')->name('ordenes-de-servicio.index');
+Volt::route('ordenes-de-servicio/seguimiento', 'ordendeservicio.seguimiento')->name('ordenes-de-servicio.seguimiento');
+Volt::route('ordenes-de-servicio/create', 'ordendeservicio.create')->name('ordenes-de-servicio.create');
+Volt::route('ordenes-de-servicio/{orden}/edit', 'ordendeservicio.edit')->name('ordenes-de-servicio.edit');
+Volt::route('ordendeservicio/{orden}/show', 'ordendeservicio.show')->name('ordenes-de-servicio.show');
+
 
 // Agendas
 Volt::route('agendas', 'agendas.index')->name('agendas.index');
 
 // Historias Clinicas
-Volt::route('historias-clinicas', 'historias-clinicas.create')->name('historias-clinicas.create');
+Volt::route('historias-clinicas', 'historiasclinicas.index')->name('historias-clinicas.index');
+Volt::route('historias-clinicas/{paciente}/create', 'historiasclinicas.create')->name('historias-clinicas.create');
+Volt::route('historias-clinicas/{historia}/edit', 'historiasclinicas.edit')->name('historias-clinicas.edit');
+Volt::route('historias-clinicas/{historia}/show', 'historiasclinicas.show')->name('historias-clinicas.show');
 
-
-
-
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

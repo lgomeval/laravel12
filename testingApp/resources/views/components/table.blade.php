@@ -7,6 +7,7 @@
     'editRoute' => null,
     'createRoute' => null,
     'showRoute' => null,
+    'agendaRoute' => null,
 ])
 
 <div class="overflow-x-auto rounded-xl shadow border border-gray-200 dark:border-zinc-700">
@@ -50,7 +51,7 @@
                 {{-- Botón --}}
                 @if ($hasActions ?? false)
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-zinc-800 dark:text-zinc-100">
-                        <x-actions :item="$item" :editRoute="$editRoute" :createRoute="$createRoute" :showRoute="$showRoute"/>
+                        <x-actions :item="$item" :editRoute="$editRoute" :agendaRoute="$agendaRoute" :createRoute="$createRoute" :showRoute="$showRoute"/>
                     </td>
                 @endif
             </tr>

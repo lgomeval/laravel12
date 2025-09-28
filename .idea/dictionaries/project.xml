@@ -4,6 +4,7 @@
       <w>abrir</w>
       <w>acciones</w>
       <w>acompanante</w>
+      <w>activas</w>
       <w>actividad</w>
       <w>activo</w>
       <w>activos</w>
@@ -36,6 +37,7 @@
       <w>ciudades</w>
       <w>cliente</w>
       <w>clientes</w>
+      <w>clinica</w>
       <w>clinicas</w>
       <w>codigo</w>
       <w>comercial</w>
@@ -58,6 +60,7 @@
       <w>definidos</w>
       <w>dejar</w>
       <w>departamento</w>
+      <w>desactivada</w>
       <w>desactivado</w>
       <w>desactivar</w>
       <w>desarrollo</w>
@@ -104,6 +107,7 @@
       <w>genero</w>
       <w>grupo</w>
       <w>guardar</w>
+      <w>historia</w>
       <w>historias</w>
       <w>identificacion</w>
       <w>implementar</w>
@@ -125,6 +129,7 @@
       <w>modales</w>
       <w>modificaciones</w>
       <w>mostrar</w>
+      <w>muestran</w>
       <w>necesario</w>
       <w>nivel</w>
       <w>nombre</w>
@@ -193,6 +198,7 @@
       <w>tipo</w>
       <w>usuario</w>
       <w>usuarios</w>
+      <w>ventana</w>
       <w>volver</w>
       <w>válido</w>
       <w>éxito</w>
